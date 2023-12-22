@@ -1,0 +1,48 @@
+{% extends "home.html" %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+<header>
+    <a href={{ url_for('home') }} class="logo">Projeto de SO</a>
+    <ul>
+        <li><a href={{ url_for('home') }}>Home</a></li>
+        <li><a href={{ url_for('login') }} class="ativo">Login</a></li>
+        <li><a href="/produtos">Produtos</a></li>
+   </ul>
+</header>
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+</section>
+
+
+<div class="forms center login">
+    <h1>Login</h1>
+    <form action="#" method="POST">
+        <div class="text_field">
+            <input type="text" name="username" required/>
+            <span></span>
+            <label>Email</label>
+        </div>
+
+        <div class="text_field">
+            <input type="password" name="password" required/>
+            <span></span>
+            <label>Senha</label>
+        </div>
+
+        <p><input type="submit" value="Entrar" /></p>    
+    </form>
+</div>
+
+
+{% endblock %}    

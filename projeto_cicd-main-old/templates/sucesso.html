@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+{% block title %}Deu tudo Certo!{% endblock %}
+{% block content %}
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+</section>
+
+
+    <div class="center flash-content flash-msg">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <h1>{{msg}}</h1>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="text-sucess-product">
+            <a href="/produtos" class="btn_products">Voltar para Produtos</a>  
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

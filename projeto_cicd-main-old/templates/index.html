@@ -1,0 +1,157 @@
+{% extends "home.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<header>
+    <a href="#" class="logo">Projeto de SO</a>
+    <ul>
+        <li><a href="#" class="ativo">Home</a></li>
+        <li><a href={{ url_for('login') }}>Login</a></li>
+        <li><a href="/produtos">Produtos</a></li>
+    </ul>
+</header>
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/moon.png')}}" id="moon">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+    <h2 id="between-mountains-text">ci / cd</h2>
+    <a href="#sec" id="btn">Saiba Mais</a>
+    <img src="{{ url_for('static', filename='images/mountains_front.png')}}" id="mountain_front">
+</section>
+<div class="sec" id="sec">
+
+    <h2>Pesquisa</h2>
+    <h3>O que é CI CD</h1>
+    <p> CI/CD é um pilar da filosofia DevOps. É a cola que une desenvolvedores e o pessoal de operações. É tanto um ativo de negócios quanto uma inovação técnica. Uma vez introduzido, o CI/CD torna-se o alicerce de uma organização de TI porque impõe lógica e organização aos processos de liberação, que antes eram caóticos. DevOps é tudo sobre transformação da cultura usando uma combinação de pessoas, processos e ferramentas. DevOps é um termo criado da junção das palavras desenvolvimento (do inglês development) e operações (do inglês operations). DeVOps é o conhecido por estar associado com práticas como inspeções contínuas de código, integração contínua (CI), entrega contínua (CD), testes contínuos, monitoramento contínuo, retorno (feedback) contínuo, melhoria contínua e inovação contínua.</p><br>
+    <p>No desenvolvimento moderno de aplicações, o objetivo é que vários desenvolvedores trabalhem ao mesmo tempo em diferentes recursos na mesma aplicação. A maioria dos times de engenharia de software usará algum processo de automatização para ajudá-los na entrega das aplicações, geralmente referido como CI/CD. Que é um conjunto de práticas/ferramentas que nos ajudam a entregar softwares de qualidade com frequência em pequenos pedaços. A quantidade de automação que eles usam pode variar muito. Alguns empreendimentos irão somente automatizar processos no ambiente de desenvolvimento. Já outros, irão automatizar todo o processo e implantar na produção assim que uma alteração for enviada para um repositório. A série de passos que são realizados como parte do processo de CI/CD é chamado de pipeline (encadeamento).</p><br>
+    <p>Os processos são geralmente definidos como três passos separados que compõem um pipeline mais extenso. Os passos são: Integração Contínua; Entrega Contínua e Implantação Contínua (Figura 1). Uma grande quantidade de ferramentas de código aberto e comerciais, estão disponíveis para coordenar os vários elementos de CI/CD.</p><br>
+
+    <h3>Integração contínua (Continuous Integration)</h3>
+    <p>O primeiro passo do encadeamento – CI – se refere a Integração Contínua. Esse primeiro processo de automatização é tipicamente destinado ao desenvolvimento e geralmente roda como parte do ambiente de desenvolvimento. Martin Fowler descreve a integração contínua como “uma prática em que os membros de uma equipe integram seu trabalho com frequência”, removendo assim um dos principais pontos problemáticos do trabalho de software: a cansativa tarefa de conciliar fragmentos de códigos que divergiram dramaticamente durante um longo período de desenvolvimento independente. A prática de integração contínua agora é onipresente entre equipes de desenvolvimento de software.</p><br>
+    <p>Suponha que você desenvolva uma nova função para o seu software e o envia para um versionador de códigos, como por exemplo o GitHub, os testes, as verificações e as revisões serão realizados de forma automática (automatizados), como a validação de formato (linting) que verifica se a formatação do seu código está seguindo o padrão da empresa. Assim que esse código é enviado para o GitHub, quando abrir uma Merge Request (solicitação de mesclagem), ou Pull Request (um pedido para juntar seu código com o restante do código de produção) esses testes irão rodar, isso é a integração contínua (Continuous Integration).</p><br>
+    <p>Nessa etapa, o código é analisado automaticamente para identificar qualquer problema que possa surgir antes do lançamento do aplicativo. Esses processos incluem (e não são limitados) aos seguintes:</p><br>
+
+    <p class="bold-style-paragraf">- Instalando dependências:</p>
+    <p>para validar todo o código e checar as potenciais vulnerabilidades, o processo de CI precisaria instalar todas as dependências do projeto.</p><br>
+
+    <p class="bold-style-paragraf">- Auditoria para vulnerabilidade de segurança:</p>
+    <p>uma vez que todas as dependências tenham sido resolvidas, é essencial verificar se cada módulo de fornecedores terceirizados não possui vulnerabilidade de segurança.</p><br>
+
+    <p class="bold-style-paragraf">- Análise estática do código (code linting):</p>
+    <p>desenvolvedores de software tendem a ter uma assinatura única. Pense em espaços versus tabulações ou aspas simples versos aspas duplas. É essencial ter padrões de codificação em uma base de código complexo para aumentar a legibilidade do código e reduzir erros. Essa análise do código garantirá que o que foi escrito, corresponda aos padrões definidos para essa aplicação.</p><br>
+    
+    <p class="bold-style-paragraf">- Verificação de tipo:</p>
+    <p>muitas linguagens de programação, como JavaScript e PHP, são fracamente tipadas. Embora a ausência de tipagem possa ser um recurso poderoso da própria linguagem, ela também pode introduzir alguns erros difíceis de encontrar. Para ajudar a encontrar esses erros, algumas ferramentas podem ser executadas no código fonte para revelar possíveis falhas.</p><br>
+    
+    <p class="bold-style-paragraf">- Teste de unidade:</p>
+    <p>para testar a lógica de negócio do código, testes de unidades podem ser rodados em funções individuais. O objetivo de um teste de unidade é apenas validar o resultado de uma única função autônoma. Esses testes são geralmente rápidos e podem ser executados em uma grande base de código em questão de minutos.</p><br>
+
+    <p class="bold-style-paragraf">- Consolidação (merging):</p>
+    <p>depois que todo o código for validado com as ferramentas automatizadas, o processo de CI pode mesclar o código em uma ramificação para uma possível liberação para um ambiente de teste.</p><br>
+
+    <p>O objetivo final da Integração Contínua é automatizar e submeter um código que um desenvolvedor individual fez, em um repositório compartilhado. Uma vez que os testes e as análises tenham sido realizadas no código, ele passa a ser confiável o suficiente para ser mesclado automaticamente. Com a mescla automática nos lugares, o número de o número de ramificações que precisam ser incorporadas manualmente na base do código é menor. Isso em última análise reduz o potencial conflito entre vários ramos que afetam o mesmo código.</p><br>
+
+    <h3>Entrega contínua (Continuous delivery)</h3>
+    <p>O componente de entrega contínua (CD), refere-se à preparação de um pedido (aplicação) a ser entregue. Ele encapsula todas as etapas necessárias para se preparar para a implantação do aplicativo. Essas etapas normalmente rodam por mais tempo e não são necessariamente executadas toda vez que o código é modificado. Em vez disso, eles rodam automaticamente quando algum código é adicionado (merged) no repositório para preparar para a implantação. Isso pode inclui fazer o seguinte:</p><br>
+
+    <p class="bold-style-paragraf">- Teste de integração:</p>
+    <p>uma vez que a lógica de negócio de cada função tenha sido testada, é hora de testar se cada componente está funcionando com o outro conforme o esperado. Esse processo, chamado teste de integração, testa normalmente a resposta de uma rede real para ver se uma pequena unidade do software funciona como esperado com uma resposta autêntica. Esses testes normalmente levam tempo e são apenas realizados em componentes envolvidos no atual ciclo de desenvolvimento.</p><br>
+
+    <p class="bold-style-paragraf">- Teste E2E (End-to-end):</p>
+    <p>O teste de ponta a ponta testa todas as jornadas do usuário em um aplicativo. Esses testes se estendem da interface do usuário até as respostas de rede de um back-end. Eles demoram muito mais para serem executados, mas geralmente podem ajudar a encontrar bugs (erros) de uma regressão testando o aplicativo como um todo.</p><br>
+
+    <p class="bold-style-paragraf">- Compilar e construir:</p>
+    <p>Quando as aplicações precisam ser compiladas, como as mobile ou aplicações nativas de desktop, isso precisa ser feito. A saída seria um executável ou um pacote que pode ser instalado e testado por uma equipe de controle de qualidade ou cliente para fornecer um feedback (retorno).</p><br>
+
+    <p class="bold-style-paragraf">- Embalar e conteinerizar:</p>
+    <p>Com alguns aplicativos, faz sentido preparar um contêiner para distribuição. Construir esse container e enviar a imagem resultante para um registro seria feito nesta fase.<br>
+        
+    Em última análise, o resultado da fase de entrega contínua é fornecer a equipe ou aos clientes, uma versão que pode ser experimentada e testada rapidamente. A entrega contínua foi criada em resposta à entrega de aplicativos mais lenta, que costumava depender de processos manuais. Com a entrega mais rápida, vem o feedback mais rápido, que é o objetivo das metodologias ágeis.
+    </p><br>
+
+    <h3>Implantação continua (Continuous deployment)</h3>
+    <p>A implantação contínua fecha o ciclo implantando em sistemas ativos que atendem usuários reais sem qualquer intervenção do operador. Aqui a ideia é reduzir o fator medo com a maior frequência possível, eliminando cada vez mais problemas até que a equipe tenha confiança suficiente nos teste e ferramentas para permitir o lançamento.</p><br>
+    <p>A implantação contínua nos ajuda a inserir os softwares de forma automatizada nos diferentes ambientes possíveis como: o ambiente do desenvolvedor, o ambiente do tester, o ambiente da homologação, pré-produção, produção e assim por diante. O desenvolvedor cria o código na máquina dele e realiza o desenvolvimento desse código em um ambiente de teste, que fica em algum servidor, para que assim sejam realizados os testes nele. A função de pegar o código de um lugar e passar para outro, dentro desse ambiente, segue até o ponto final, que é a produção. Esse é o resumo do porquê precisamos utilizar o CI/CD. </p><br>
+    <p>Dependendo das definições, a implantação contínua geralmente fará parte do estágio de entrega contínua, mas algumas pessoas preferem dividir em dois para enfatizar a quantidade de automatização que pode acontecer.</p><br>
+    <p>Aplicar o CI/CD é um caminho para se ter mais confiança no software fazendo com que seja possível entregar várias versões no mesmo dia se necessário. Esse processo de automação é muito importante para obter essa agilidade no dia a dia e também para alcançar um alto nível de qualidade. Para uma empresa que precisa realizar diversos tipos de testes diferentes para cada nova funcionalidade que desenvolve, realizar tudo isso manualmente tornaria o processo de desenvolvimento lento e inviável, sendo assim essencial a automação, utilização do CI/CD evitando também erros humanos durante os testes.</p><br>
+
+    <h3>Ferramentas para utilização do CI/CD</h3>
+    <p class="bold-style-paragraf">- Jenkins:</p>
+    <p>Servidor que fornece integração contínua e facilita a entrega contínua, além de permitir testes e relatórios em tempo real.</p><br>
+
+    <p class="bold-style-paragraf">- TeamCity:</p>
+    <p>Ferramenta de pipeline baseada em servidor java que oferece integração com o Azure DevOps e Jira Software Cloud.</p>
+    <p>O TeamCity é extensível e pode ser personalizado para assim reutilizar configurações de um projeto para o subprojeto.Possui a flexibilidade de executar compilações simultâneas em diferentes ambientes. Além de possibilitar a execução de histórico, relatórios e testes em tempo real.</p><br>
+
+    <p class="bold-style-paragraf">- Circleci:</p>
+    <p>O CircleCI Cloud é baseado em nuvem e o CircleCI Server é um produto auto-hospedado no local. As compilações podem ser divididas em vários contêineres e seus testes podem ser feitos em paralelo. O CircleCI pode se integrar a ferramentas como Github Enterprise, LambdaTeste e Coveralls. Além de suportar plataformas em nuvem como AWS, Google Cloud e Azure.</p><br>
+
+    <p class="bold-style-paragraf">- Bitbucket Pipelines:</p>
+    <p>A ferramenta de integração contínua na nuvem do Bitbucket aponta para a implantação e permite que você escolha o local final para a compilação.</p><br>
+
+    <p class="bold-style-paragraf">- GitLab CI/CD:</p>
+    <p>O mecanismo se conecta diretamente ao repositório Git a ser ativado e o processo é construído em torno de contêineres do Docker.</p><br>
+
+    <p class="bold-style-paragraf">- Azure Pipelines</p>
+    <p>Azure pipeline integra-se com github e implementações do Azure, além de implantar diferentes tipos de destinos ao mesmo tempo. </p><br>
+
+
+    <h3>Como aplicar CI/CD</h3>
+    <p class="bold-style-paragraf">CI</p>
+    <p>Com a CI, os desenvolvedores frequentemente integram seu código na ramificação principal de um repositório comum. Em vez de criar recursos isoladamente e enviar cada um deles no final do ciclo, um desenvolvedor se esforça para contribuir com produtos de trabalho de software para o repositório várias vezes em um determinado dia.</p><br>
+    <p>A grande ideia aqui é reduzir os custos de integração fazendo com que os desenvolvedores o façam mais cedo e com mais frequência. Na prática, um desenvolvedor frequentemente descobre conflitos de fronteira entre código novo e existente no momento da integração. Se for feito cedo e com frequência, a expectativa é que essas resoluções de conflitos sejam mais fáceis e menos dispendiosas.</p><br>
+    <p>Obviamente, existem trocas. Essa alteração de processo não fornece garantias adicionais de qualidade. De fato, muitas organizações acham que essa integração se torna mais cara, pois dependem de procedimentos manuais para garantir que o novo código não vai introduzir novos bugs e nem quebrar o código existente.</p><br>
+    <p>Para reduzir o atrito durante as tarefas, a integração contínua depende de suítes de testes e de uma execução automatizada. É importante, no entanto, perceber que o teste automatizado é bem diferente do teste contínuo.</p><br>
+    <p>O objetivo da CI é refinar a integração em uma tarefa de desenvolvimento diária simples e de fácil repetição, que servirá para reduzir os custos gerais de construção e revelar defeitos no início do ciclo. O sucesso dependerá de mudanças na cultura da equipe de desenvolvimento, para que haja incentivo à prontidão, a construções frequentes e iterativas e à vontade de lidar com os bugs quando eles são encontrados muito antes.</p><br>
+
+    <p class="bold-style-paragraf">CD</p>
+    <p>A CD cobre a próxima fase no desenvolvimento de aplicativos — liberando as alterações. Ela garante que o código possa ser implementado de maneira rápida e segura na produção, entregando todas as alterações em um ambiente de preparação, garantindo que os aplicativos e serviços de negócios funcionem conforme o esperado por meio de rigorosos testes automatizados.</p><br>
+    <p>Como todas as alterações são entregues em um ambiente de armazenamento temporário usando automação completa, os desenvolvedores podem ter certeza de que o aplicativo será implantado na produção com o pressionar de um botão sempre que a empresa estiver pronta.</p><br>
+    <p>O valor da entrega contínua está no fato de o código estar pronto para implantar o tempo todo: o controle de qualidade testa automaticamente cada compilação em cada ambiente e, se for aprovado, o código estará pronto para ser implantado. A implementação da entrega contínua aumenta efetivamente a qualidade e a velocidade e torna a equipe mais eficiente.</p><br><br>
+
+
+    <p class="bold-style-paragraf references">Referências Bibliográficas </p>
+    <p class="references">pessonizado. CI/CD-Integração Contínua e Entrega Contínua. Youtube, 27 de fev. de 2021. Disponível em: https://www.youtube.com/watch?v=c_bKNOj3TYM&ab_channel=pessonizando. Acesso em: 16 de mar. de 2022.</p><br>
+
+    <p class="references">O que é o Azure Pipelines?. Microsoft, 2022. Disponível em: https://docs.microsoft.com/pt-br/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops. Acesso em: 16 de mar. de 2022.</p><br>
+
+    <p class="references">10 ferramentas para integração e entrega contínuas na nuvem. itforum, 2019. Disponível em: https://itforum.com.br/noticias/10-ferramentas-para-integracao-e-entrega-continuas-na-nuvem/. Acesso em: 16 de mar. de 2022.</p><br>
+
+    <p class="references">27 das melhores ferramentas de CI / CD disponíveis hoje. ICHI.PRO, 2022. Disponível em: https://ichi.pro/pt/27-das-melhores-ferramentas-de-ci-cd-disponiveis-hoje-194611649728144. Acesso em 16 de mar. de 2022.</p><br>
+
+    <p class="references">LORD, Joel. Building CI/CD Systems Using Tekton: Develop flexible and powerful CI/CD pipelines using Tekton Pipelines and Triggers. Packt Publishing Ltd, 2021. 278 p.</p><br>
+
+    <p class="references">NEMETH, Evi; SNYDER, Garth; WHALEY, Ben; MACKIN, Dan. Unix and Linux System Administration Handbook. 5. ed. Addison-Wealey Professional, 2017. 1232 p.</p><br>
+
+    <p class="references">PATIL, Ankita; SONI, MITESH. Hands-on Pipelines as Code with Jenkins: CI/CD Implementation for Mobile, Web, and Hybrid Applications Using Declarative Pipeline in Jenkins. BPB Publications, 2021. 514 p.</p><br>
+
+</div>
+
+<script>
+
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountain_behind');  
+    let text = document.getElementById('between-mountains-text')
+    let btn = document.getElementById('btn'); 
+    let mountains_front = document.getElementById('mountain_front');
+    let header = document.querySelector('header');
+
+    window.addEventListener('scroll', function(){
+
+        let value = window.scrollY;
+        stars.style.left = value * 0.25 + 'px';
+        moon.style.top = value * 1.05 + 'px';
+        mountains_behind.style.top = value * 0.5 + 'px';
+        mountains_front.style.top = value * 0 + 'px';
+        text.style.marginRight = value * 3 + 'px';
+        text.style.marginTop = value * 1.5 + 'px';
+        btn.style.marginTop = value * 1.5 + 'px';
+        header.style.top = value * 0.5 + 'px';
+
+    })
+
+</script>
+
+{% endblock %}

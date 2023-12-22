@@ -1,0 +1,44 @@
+{% extends "home.html" %}
+{% block title %}Cadastrar Produtos{% endblock %}
+{% block content %}
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+</section>
+
+<div class="center forms cad-prod">
+    <h1>Cadastrar Produto</h1>
+    
+
+    <form action="#" method="post">
+
+        <div class="text_field">
+            <input type="text" id="nome_produto" name="nome_produto" required>
+            <span></span>
+            <label for="nome_produto">Produto</label><br>
+        </div>
+
+        <div class="text_field">
+            <input type="number" id="id_produto" name="id_produto" required>
+            <span></span>
+            <label for="id_produto">ID</label><br>
+        </div>
+
+        
+        <div class="date-field">
+            <label for="val_produto" class="color-label">Validade</label><br>
+            <input type="date" id="val_produto" name="val_produto" required><br>
+        </div>
+
+        <div class="text_field">
+            <input type="number" id="price_produto" name="price_produto" step=".01" required>
+            <span></span>
+            <label for="price_produto">Preço</label><br>
+        </div>
+
+        <input type="submit" value="Adicionar Produto">
+
+    </form>
+</div>
+{% endblock %}

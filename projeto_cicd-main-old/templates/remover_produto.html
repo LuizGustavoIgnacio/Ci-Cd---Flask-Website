@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% block title %}Remover Produto{% endblock %}
+{% block content %}
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+</section>
+
+
+<div class="forms center edit-prod">
+    <h1>Remover Produto</h1>
+
+    <div class="my-table">{{data|safe}}</div>
+
+    <form action="#" method="post">
+        
+        <div class="text_field">
+            <input type="number" id="id_remov_produto" name="id_remov_produto" required>
+            <span></span>
+            <label for="id_remov_produto">ID do produto que desejado</label><br>
+        </div>
+        
+        <input type="submit" value="Remover Produto">
+
+    </form>
+</div>
+{% endblock %}

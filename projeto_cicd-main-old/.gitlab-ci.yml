@@ -1,0 +1,56 @@
+image: python:latest
+
+stages: 
+  - test
+  - build 
+
+before_script:
+  - Set-Variable -Name "time" -Value (date -Format "%H:%m")
+  - echo ${time}
+  - echo "Iniciado por ${GITLAB_USER_NAME}"
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - pip install requests
+  - pip install python-dotenv
+  - pip install openpyxl
+  - pip install flask
+  - python -m pip install pytest
+  - python -m pip install pylint
+
+pylint: 
+  stage: test
+  script: 
+    - python -m pip install pylint --quiet
+
+pytest:
+  stage: test
+  script: 
+    - python -m pip install pytest --quiet
+
+Teste:Pylint:Funcionalidades:
+  stage: test
+  script: 
+    - pylint funcionalidades.py
+
+Teste:Login:
+  stage: test
+  script:
+    - pytest funcionalidades.py::login
+
+Teste:Logout:
+  stage: test
+  script:
+    - pytest funcionalidades.py::logout
+
+Teste:Produtos:
+  stage: test
+  script:
+    - pytest funcionalidades.py::receber_produtos
+    - pytest funcionalidades.py::editar_produtos
+    - pytest funcionalidades.py::remover_produto
+
+Funcionalidades:Build:
+  stage: build
+  script:
+    - python funcionalidades.py     

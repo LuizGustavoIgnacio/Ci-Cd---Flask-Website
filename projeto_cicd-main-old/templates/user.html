@@ -1,0 +1,43 @@
+{% extends "home.html" %}
+{% block title %}User{% endblock %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+            <div class="alert">
+                <span class="closebtn">&times;</span>  
+                <strong>{{msg}}</strong>
+            </div>
+            {% endfor %}
+        {% endif %}
+        
+    {% endwith %}
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/moon.png')}}" id="moon">
+</section>
+
+<div class="center user-space">
+    <p class="text-user">Bem vindo, {{user}}</p> 
+    <br />
+    <div class="text-sucess-product">
+        <a href={{ url_for('logout') }} class="btn_products">logout</a>
+    </div>
+</div>
+
+<script>
+
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+    
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+      }
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% block title %}Editar Produto{% endblock %}
+{% block content %}
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+</section>
+
+
+<div class="forms center edit-prod">
+    <h1>Editar Produto</h1>
+
+    <div class="my-table">{{data|safe}}</div>
+
+    <form action="#" method="post">
+
+        <div class="border-bt">
+            <div class="text_field">
+                <input type="number" id="id_edit_produto" name="id_edit_produto" required>
+                <span></span>
+                <label for="id_edit_produto">ID do produto desejado</label><br>
+            </div><br>
+        </div><br>
+
+
+        <div class="text_field">
+            <input type="text" id="new_nome_produto" name="new_nome_produto" required >
+            <span></span>
+            <label for="new_nome_produto">Novo Produto</label><br>
+        </div>
+        
+        <div class="text_field">
+            <input type="number" id="new_id_produto" name="new_id_produto" required>
+            <span></span>
+            <label for="new_id_produto">Nova ID</label><br>
+        </div>
+
+        <div>
+            <label for="new_val_produto">Nova Validade</label><br>
+            <input type="date" id="new_val_produto" name="new_val_produto" required><br>
+        </div>
+        
+        <div class="text_field">
+            <input type="number" id="new_price_produto" name="new_price_produto" required step=".01">
+            <span></span>
+            <label for="new_price_produto">Novo Preço</label><br>
+        </div>
+
+        <input type="submit" value="Editar Produto">
+
+    </form>
+</div>
+
+{% endblock %}

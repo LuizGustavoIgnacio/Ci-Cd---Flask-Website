@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+{% block title %}Produtos{% endblock %}
+{% block content %}
+
+<header>
+    <a href={{ url_for('home') }} class="logo">Projeto de SO</a>
+    <ul>
+        <li><a href={{ url_for('home') }}>Home</a></li>
+        <li><a href={{ url_for('login') }}>Login</a></li>
+        <li><a href="/produtos" class="ativo">Produtos</a></li>
+   </ul>
+</header>
+
+<section>
+    <img src="{{ url_for('static', filename='images/stars.png')}}" id="stars">
+    <img src="{{ url_for('static', filename='images/mountains_behind.png')}}" id="mountain_behind">
+</section>
+
+<div class="center show_product product">
+    <h2>Lista de Produtos</h2>
+
+    <div class="my-table">{{data|safe}}</div>
+    <div class="text-edit-product">
+        <a href="/cadastrar_produtos" class="btn_products">Cadastrar</a><br>
+        <a href="/editar_produtos" class="btn_products">Editar</a><br>
+        <a href="/remover_produtos" class="btn_products">Remover</a><br>
+    </div>
+</div>
+
+{% endblock %}    
