@@ -1,6 +1,6 @@
 ## CI/CD - Flask WebSite
 
-Olá, este é um projeto desenvolvido para a matéria de Sistemas Operacionais 2.
+Olá, este é um projeto desenvolvido para a matéria de Sistemas Operacionais 2 da faculdade da Fatec de Americana - Análise e Desenvolvimento de Sistemas.
 
 O Objetivo desta vez é atualizar o projeto!.
 
