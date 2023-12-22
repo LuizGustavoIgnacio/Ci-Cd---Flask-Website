@@ -8,5 +8,5 @@ O Objetivo desta vez é atualizar o projeto!.
 
 
 Grupo do projeto:
-[Veruska Diniz](https://www.github.com/vediniz)
+[Veruska Diniz](https://www.github.com/vediniz)   
 [Ryan](https://www.github.com/ryanhsa2001)
